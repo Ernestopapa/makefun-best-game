@@ -1,0 +1,6 @@
+[
+  { "shot": "title", "seed": 1, "url": "?shot=title&seed=1" },
+  { "shot": "play", "seed": 1, "url": "?shot=play&seed=1" },
+  { "shot": "upgrade", "seed": 1, "url": "?shot=upgrade&seed=1" },
+  { "shot": "results", "seed": 1, "url": "?shot=results&seed=1" }
+]
