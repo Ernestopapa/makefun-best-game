@@ -1,6 +1,9 @@
 import { writeFileSync, cpSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-game.ts';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR || '/output';
 const gameDir = join(outputDir, 'game');
@@ -9,8 +12,8 @@ const shotsDir = join(outputDir, 'screenshots');
 mkdirSync(gameDir, { recursive: true });
 mkdirSync(shotsDir, { recursive: true });
 
-cpSync('game', gameDir, { recursive: true });
-cpSync('screenshots', shotsDir, { recursive: true });
+cpSync(join(__dirname, 'game'), gameDir, { recursive: true });
+cpSync(join(__dirname, 'screenshots'), shotsDir, { recursive: true });
 
 try {
   const dossier = buildDossier(outputDir, {
